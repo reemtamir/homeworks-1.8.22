@@ -45,10 +45,10 @@ button2.setAttribute('onclick', 'replaceChar()');
 div.appendChild(button2);
 
 function countChar(srt) {
-  str = input2.value;
+  const str = input2.value;
   const counts = {};
   for (const key of str) {
-    counts[key] ? counts[key]++ : (counts[key] = 1);
+    counts[key] = counts[key] ? counts[key] + 1 : 1;
   }
 
   return counts;
@@ -59,7 +59,7 @@ function replaceChar() {
   let MostOccurredChar = 0;
   let obj = countChar();
   for (let key in obj) {
-    if (Number(obj[key] > MostOccurredChar)) {
+    if (Number(obj[key]) > MostOccurredChar) {
       MostOccurredChar = obj[key];
       tempKey = key;
     }
